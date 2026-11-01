@@ -14,6 +14,8 @@ app='build-device/Build/Products/Release-iphoneos/GuizadoTV.app'
 test -f "$app/GuizadoTV"
 lipo "$app/GuizadoTV" -verify_arch arm64
 plutil -lint "$app/Info.plist"
+plutil -p "$app/Info.plist"
+test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$app/Info.plist")" = "$GUIZADO_BUNDLE_ID"
 destination="$PWD/artifacts/GUIZADO-TV-sin-firma.ipa"
 staging=$(mktemp -d)
 trap 'rm -rf "$staging"' EXIT

@@ -31,6 +31,7 @@ jobs:
         working-directory: GUIZADO-TV-iOS
         run: bash ci/smoke-simulator.sh
       - name: Guardar IPA
+        if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
           name: GUIZADO-TV-iPhone-IPA-sin-firma
