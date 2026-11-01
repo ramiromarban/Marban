@@ -12,7 +12,7 @@ xcodebuild -project GuizadoTV.xcodeproj -scheme GuizadoTV \
   CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO build
 app='build-device/Build/Products/Release-iphoneos/GuizadoTV.app'
 test -f "$app/GuizadoTV"
-lipo -verify_arch arm64 "$app/GuizadoTV"
+lipo "$app/GuizadoTV" -verify_arch arm64
 plutil -lint "$app/Info.plist"
 destination="$PWD/artifacts/GUIZADO-TV-sin-firma.ipa"
 staging=$(mktemp -d)
