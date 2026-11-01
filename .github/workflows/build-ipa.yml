@@ -17,6 +17,9 @@ jobs:
       - name: Extraer proyecto nativo
         run: |
           unzip -q GUIZADO-TV-iOS-proyecto.zip
+          if [ -d GUIZADO-TV-iOS/GuizadoTV/Resources ]; then
+            mv GUIZADO-TV-iOS/GuizadoTV/Resources GUIZADO-TV-iOS/GuizadoTV/MediaAssets
+          fi
           cp -R native/. GUIZADO-TV-iOS/
       - name: Verificar proyecto y ejecutar comprobaciones
         working-directory: GUIZADO-TV-iOS

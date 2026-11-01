@@ -20,7 +20,7 @@ DCD4EDDDDDAC85C69E803051 = { isa = PBXBuildFile; fileRef = 8EE67E61E462AE534D92D
 7FDF56846208E3896FA56AF9 = { isa = PBXBuildFile; fileRef = 90A35154A169840CD1000E50; };
 02130E108F8420FD87FDC8A7 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GuizadoTV/Views/Screens.swift"; sourceTree = SOURCE_ROOT; };
 E88B52CD714A920B00DA1C16 = { isa = PBXBuildFile; fileRef = 02130E108F8420FD87FDC8A7; };
-9BEC4A4F172472C54E00D881 = { isa = PBXFileReference; lastKnownFileType = folder; path = "GuizadoTV/Resources"; sourceTree = SOURCE_ROOT; };
+9BEC4A4F172472C54E00D881 = { isa = PBXFileReference; lastKnownFileType = folder; path = "GuizadoTV/MediaAssets"; sourceTree = SOURCE_ROOT; };
 D2F9DC991B2B766B8C78657C = { isa = PBXBuildFile; fileRef = 9BEC4A4F172472C54E00D881; };
 937AC03328E694E86DB2E4C1 = { isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "GuizadoTV/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 E5D2BBB696B7AD8388C57908 = { isa = PBXBuildFile; fileRef = 937AC03328E694E86DB2E4C1; };

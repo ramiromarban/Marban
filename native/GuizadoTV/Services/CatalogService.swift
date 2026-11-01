@@ -274,7 +274,7 @@ actor CatalogService {
 
 enum AssetFiles {
     static func url(_ path: String) -> URL? {
-        let root = Bundle.main.resourceURL?.appendingPathComponent("Resources", isDirectory: true).appendingPathComponent(path)
+        let root = Bundle.main.resourceURL?.appendingPathComponent("MediaAssets", isDirectory: true).appendingPathComponent(path)
         if let root, FileManager.default.fileExists(atPath: root.path) { return root }; return nil
     }
     static func data(_ path: String) -> Data? { url(path).flatMap { try? Data(contentsOf: $0) } }
