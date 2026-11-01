@@ -1,0 +1,35 @@
+name: GUIZADO TV - IPA iPhone
+on:
+  push:
+    branches: [main]
+    paths: ['GUIZADO-TV-iOS-proyecto.zip']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  iphone:
+    runs-on: macos-15
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - name: Extraer proyecto nativo
+        run: unzip -q GUIZADO-TV-iOS-proyecto.zip
+      - name: Verificar proyecto y ejecutar comprobaciones
+        working-directory: GUIZADO-TV-iOS
+        run: |
+          xcodebuild -version
+          plutil -lint GuizadoTV/Info.plist GuizadoTV.xcodeproj/project.pbxproj
+          sh check-core.sh
+      - name: Compilar para iPhone y empaquetar IPA
+        working-directory: GUIZADO-TV-iOS
+        run: bash ci/build-unsigned.sh
+      - name: Guardar IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: GUIZADO-TV-iPhone-IPA-sin-firma
+          path: GUIZADO-TV-iOS/artifacts/
+          if-no-files-found: error
+          retention-days: 14
+
