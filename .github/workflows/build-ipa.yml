@@ -2,7 +2,7 @@ name: GUIZADO TV - IPA iPhone
 on:
   push:
     branches: [main]
-    paths: ['GUIZADO-TV-iOS-proyecto.zip']
+    paths: ['GUIZADO-TV-iOS-proyecto.zip', 'native/**', '.github/workflows/build-ipa.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -15,7 +15,9 @@ jobs:
         with:
           persist-credentials: false
       - name: Extraer proyecto nativo
-        run: unzip -q GUIZADO-TV-iOS-proyecto.zip
+        run: |
+          unzip -q GUIZADO-TV-iOS-proyecto.zip
+          cp -R native/. GUIZADO-TV-iOS/
       - name: Verificar proyecto y ejecutar comprobaciones
         working-directory: GUIZADO-TV-iOS
         run: |
